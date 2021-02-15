@@ -14,3 +14,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## How to use this application
 
 [Click here](https://lookingformusic.herokuapp.com/) to open webpage for Spotify Search application.
+
+You can search for artists, albums, tracks and playlists.
