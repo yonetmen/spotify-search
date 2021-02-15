@@ -1,23 +1,35 @@
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.scss";
+import logo from "./images/logo.png";
+import SearchForm from "./components/SearchForm";
+import ItemList from "./components/ItemList";
+import apiClient from "./services/ApiClient";
 
-function App() {
+const { getSpotifyAccessToken } = apiClient;
+
+const App = () => {
+  const [token, setToken] = useState("");
+  const [responseData, setResponseData] = useState({ payload: {} });
+  const [category, setCategory] = useState("track");
+
+  useEffect(() => {
+    getSpotifyAccessToken(setToken);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <img src={logo} alt="Logo" height="50px;" />
       </header>
+      <SearchForm
+        token={token}
+        category={category}
+        setCategory={setCategory}
+        setResponseData={setResponseData}
+      />
+      <ItemList responseData={responseData} category={category} />
     </div>
   );
-}
+};
 
 export default App;

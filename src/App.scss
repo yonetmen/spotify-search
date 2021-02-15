@@ -1,0 +1,182 @@
+$primary: #1ed760;
+$background: #191919;
+$transition: 0.25s;
+
+@mixin media($size) {
+  @if $size == small {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 60%;
+  @include media(small) {
+    font-size: 45%;
+  }
+}
+
+body {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  padding: 4rem;
+  background-color: $background;
+  font-family: "Poppins", sans-serif;
+
+  @include media(small) {
+    padding: 3rem;
+  }
+}
+
+// Form
+form {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+
+  input {
+    position: relative;
+    padding: 1.2rem;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    background: white;
+  }
+
+  &::after {
+    content: "\25BC";
+    font-size: medium;
+    position: relative;
+    display: flex;
+    align-items: center;
+    top: 0rem;
+    right: 0rem;
+    padding: 0.5rem 0.5rem;
+    background: $primary;
+    color: white;
+  }
+}
+
+button {
+  cursor: pointer;
+  padding: 1.2rem;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  background: white;
+  color: $primary;
+
+  &:hover {
+    color: white;
+    background: $primary;
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  position: relative;
+  margin-left: 1em;
+  padding-left: 1em;
+  padding-right: 0.5em;
+  cursor: pointer;
+}
+
+.category-dropdown {
+  font-size: 18px;
+  color: $background;
+  background-color: white;
+  border-radius: 1px;
+}
+
+// Grid
+.grid {
+  display: grid;
+  gap: 6rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  
+  &__item {
+    background-color: white;
+    border-radius: 0.2rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: $transition;
+    justify-self: center;
+  }
+}
+
+.card {
+  &__img {
+    display: block;
+    width: 100%;
+    height: 22rem;
+    object-fit: cover;
+  }
+
+  &__content {
+    padding: 2rem 2rem;
+  }
+
+  &__header {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: $background;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    line-height: 1.7;
+    color: $background;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+  }
+
+  &__btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+    background-color: $primary;
+    border: none;
+    border-radius: 0.4rem;
+    transition: $transition;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $background;
+    }
+  }
+}
+
+.no-result {
+  color: white;
+  opacity: 0.1;
+  font-size: 4em;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
