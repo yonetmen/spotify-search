@@ -4,13 +4,12 @@ import apiClient from "../services/ApiClient";
 const { getSearchData } = apiClient;
 
 const SearchForm = ({ token, setResponseData, category, setCategory }) => {
-  const searchUrl = "https://api.spotify.com/v1/search";
   const [query, setQuery] = useState("");
 
   const search = (e) => {
     e.preventDefault();
     if (query.trim()) {
-      getSearchData(searchUrl, token, query, category, setResponseData);
+      getSearchData(token, query, category, setResponseData);
     }
     setQuery("");
   };

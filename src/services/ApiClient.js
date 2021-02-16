@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const searchUrl = "https://api.spotify.com/v1/search";
+
 const services = {
   getSpotifyAccessToken: (setToken) =>
     axios("https://accounts.spotify.com/api/token", {
@@ -15,7 +17,7 @@ const services = {
       method: "POST",
     }).then((response) => setToken(response.data.access_token)),
 
-  getSearchData: (searchUrl, token, query, category, setResponseData) => {
+  getSearchData: (token, query, category, setResponseData) => {
     axios(searchUrl, {
       headers: { Authorization: "Bearer " + token },
       params: { q: query, type: category, limit: 24 },
