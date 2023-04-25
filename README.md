@@ -13,4 +13,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## About the Application
 
-This application is a react based Spotify search application. You can search, Artists, Tracks, Albums, and Playlists. In order to make it work, you need to provide Spotify REACT_APP_CLIENT_ID and REACT_APP_CLIENT_SECRET values for API calls.
+This application is a react based Spotify search application. You can search, Artists, Tracks, Albums, and Playlists. In order to make it work, you need to provide Spotify  `REACT_APP_CLIENT_ID ` and  `REACT_APP_CLIENT_SECRET ` values for API calls.
